@@ -1,6 +1,7 @@
 from typing import List, Sequence
 
 from dotenv import load_dotenv
+
 load_dotenv()
 
 from langchain_core.messages import BaseMessage, HumanMessage
@@ -43,7 +44,8 @@ graph.get_graph().print_ascii()
 
 if __name__ == "__main__":
     print("Hello LangGraph")
-    inputs = HumanMessage(content="""Make this tweet better:"
+    inputs = HumanMessage(
+        content="""Make this tweet better:"
                                     @LangChainAI
             — newly Tool Calling feature is seriously underrated.
 
@@ -51,5 +53,6 @@ if __name__ == "__main__":
 
             Made a video covering their newest blog post
 
-                                  """)
+                                  """
+    )
     response = graph.invoke(inputs)
