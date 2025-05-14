@@ -1,5 +1,5 @@
 [project]
-name = "c-rag"
+name = "self-rag"
 version = "0.1.0"
 description = ""
 authors = [
