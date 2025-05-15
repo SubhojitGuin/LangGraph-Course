@@ -43,5 +43,5 @@ workflow.add_edge(GENERATE, END)
 
 app = workflow.compile()
 
-# app.get_graph().draw_mermaid_png(output_file_path="graph.png", max_retries=5, retry_delay=2.0, draw_method=MermaidDrawMethod.API)
+app.get_graph().draw_mermaid_png(output_file_path="graph.png")
 print(app.get_graph().draw_mermaid())
