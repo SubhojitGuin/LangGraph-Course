@@ -1,6 +1,9 @@
 from typing import TypedDict
 from langgraph.graph import StateGraph, START, END
 from langgraph.checkpoint.memory import MemorySaver
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class State(TypedDict):
@@ -37,3 +40,26 @@ memory = MemorySaver()
 graph = builder.compile(checkpointer=memory, interrupt_before=["human_feedback"])
 
 graph.get_graph().draw_mermaid_png(output_file_path="graph.png")
+
+
+if __name__ == "__main__":
+    thread = {"configurable": {"thread_id": "1"}}
+
+    initial_input = {"input": "hello world"}
+
+    for event in graph.stream(initial_input, thread, stream_mode="values"):
+        print(event)
+
+    print(graph.get_state(thread).next)
+
+    user_input = input("Tell me how you want to update the state: ")
+
+    graph.update_state(thread, {"user_feedback": user_input}, "human_feedback")
+
+    print("---State after update---")
+    print(graph.get_state(thread))
+
+    print(graph.get_state(thread).next)
+
+    for event in graph.stream(None, thread, stream_mode="values"):
+        print(event)
