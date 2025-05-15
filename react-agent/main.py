@@ -29,12 +29,19 @@ flow.add_node(ACT, execute_tools)
 flow.add_conditional_edges(
     AGENT_REASON,
     should_continue,
+    {
+        ACT: ACT,
+        END: END,
+    },
 )
 
 flow.add_edge(ACT, AGENT_REASON)
 
 app = flow.compile()
-app.get_graph().draw_mermaid_png(output_file_path="graph.png")
+# app.get_graph().draw_mermaid_png(output_file_path="graph.png")
+with open("graph.png", "wb") as f:
+        f.write(app.get_graph().draw_mermaid_png())
+
 
 if __name__ == "__main__":
     print("Hello ReAct with LangGraph")
