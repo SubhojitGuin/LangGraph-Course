@@ -23,11 +23,19 @@ def event_loop(state: List[BaseMessage]) -> str:
     return "execute_tools"
 
 
-builder.add_conditional_edges("revise", event_loop)
+builder.add_conditional_edges(
+    "revise",
+    event_loop,
+    {
+        "execute_tools": "execute_tools",
+        END: END,
+    },
+)
 builder.set_entry_point("draft")
 graph = builder.compile()
 
 print(graph.get_graph().draw_mermaid())
+graph.get_graph().draw_mermaid_png(output_file_path="graph.png")
 
 if __name__ == "__main__":
     res = graph.invoke(
