@@ -131,6 +131,25 @@ files = [
 frozenlist = ">=1.1.0"
 
 [[package]]
+name = "aiosqlite"
+version = "0.21.0"
+description = "asyncio bridge to the standard sqlite3 module"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "aiosqlite-0.21.0-py3-none-any.whl", hash = "sha256:2549cf4057f95f53dcba16f2b64e8e2791d7e1adedb13197dd8ed77bb226d7d0"},
+    {file = "aiosqlite-0.21.0.tar.gz", hash = "sha256:131bb8056daa3bc875608c631c678cda73922a2d4ba8aec373b19f18c17e7aa3"},
+]
+
+[package.dependencies]
+typing_extensions = ">=4.0"
+
+[package.extras]
+dev = ["attribution (==1.7.1)", "black (==24.3.0)", "build (>=1.2)", "coverage[toml] (==7.6.10)", "flake8 (==7.0.0)", "flake8-bugbear (==24.12.12)", "flit (==3.10.1)", "mypy (==1.14.1)", "ufmt (==2.5.1)", "usort (==1.0.8.post1)"]
+docs = ["sphinx (==8.1.3)", "sphinx-mdinclude (==0.6.1)"]
+
+[[package]]
 name = "annotated-types"
 version = "0.7.0"
 description = "Reusable constraint types to use with typing.Annotated"
@@ -921,6 +940,22 @@ files = [
 [package.dependencies]
 langchain-core = {version = ">=0.2.38", markers = "python_version < \"4.0\""}
 ormsgpack = ">=1.8.0,<2.0.0"
+
+[[package]]
+name = "langgraph-checkpoint-sqlite"
+version = "2.0.7"
+description = "Library with a SQLite implementation of LangGraph checkpoint saver."
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "langgraph_checkpoint_sqlite-2.0.7-py3-none-any.whl", hash = "sha256:b04decd8c3f7c2966ca63b4fa11eb789a03b27001e4d855ccd132c50da59812b"},
+    {file = "langgraph_checkpoint_sqlite-2.0.7.tar.gz", hash = "sha256:344f307c0840a1cbd85a18dcd6daac8e989947979c1a43c2bdc6c6f4ed12084a"},
+]
+
+[package.dependencies]
+aiosqlite = ">=0.20,<0.22"
+langgraph-checkpoint = ">=2.0.15,<3.0.0"
 
 [[package]]
 name = "langgraph-prebuilt"
@@ -2316,4 +2351,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<4.0"
-content-hash = "479525831bd5ad738c8de8a7e4ed483324eb55997f29ebb46fc06b9065cadba9"
+content-hash = "38bc7e5a22902e5c4885067f13058382e87964a1d90253e2eb8a2427717ce1f5"
