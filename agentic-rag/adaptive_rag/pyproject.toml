@@ -1,11 +1,12 @@
 [project]
-name = "adaptive-rag"
+name = "graph"
 version = "0.1.0"
 description = ""
 authors = [
     {name = "Subhojit Guin",email = "subhojitguin2004@gmail.com"}
 ]
 readme = "README.md"
+packages = [{ include = "graph" }]
 requires-python = ">=3.11,<4.0"
 dependencies = [
     "beautifulsoup4 (>=4.13.4,<5.0.0)",
@@ -20,7 +21,10 @@ dependencies = [
     "black (>=25.1.0,<26.0.0)",
     "isort (>=6.0.1,<7.0.0)",
     "pytest (>=8.3.5,<9.0.0)",
-    "pyppeteer (>=2.0.0,<3.0.0)"
+    "pyppeteer (>=2.0.0,<3.0.0)",
+    "langgraph-cli[inmem] (>=0.2.10,<0.3.0)",
+    "langchain-openai (>=0.3.17,<0.4.0)",
+    "langchain-tavily (>=0.1.6,<0.2.0)"
 ]
 
 
